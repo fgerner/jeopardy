@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import rootReducer from './reducers/index';
 import App from './components/App';
 import Category from "./components/Category";
+import './index.css';
 
 const store = createStore(rootReducer);
 
