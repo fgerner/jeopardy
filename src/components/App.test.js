@@ -8,7 +8,7 @@ const props = {categories};
 
 Enzyme.configure({adapter: new Adapter()});
 
-describe('App', () => {
+describe('App component', () => {
     const app = shallow(<App {...props} />);
 
     it('should render title', () => {
