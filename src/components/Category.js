@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import Clue from "./Clue";
 
 
-class Category extends Component {
+export class Category extends Component {
     constructor() {
         super ();
         this.state = {clues: []};
@@ -18,7 +18,6 @@ class Category extends Component {
     render() {
         return (
             <div>
-                <Link className={'link-home'} to={'/'}>Home</Link>
                 <h2>{this.props.category.title}</h2>
                 {
                     this.state.clues.map(clue => {
@@ -32,8 +31,19 @@ class Category extends Component {
     }
 }
 
+class LinkedCategory extends Component {
+    render(){
+        return (
+            <div>
+                <Link className={'link-home'} to={'/'}>Home</Link>
+                <Category category={this.props.category}/>
+            </div>
+        )
+    }
+}
+
 function mapStateToProps(state) {
     return {category: state.category}
 }
 
-export default connect(mapStateToProps)(Category);
+export default connect(mapStateToProps)(LinkedCategory);
